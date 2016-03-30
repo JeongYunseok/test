@@ -1,0 +1,440 @@
+<!-- 머지 테스트입니다. -->
+#parse("/service/Coll/electionColl_macro.vm")
+<!-- 개표현황 -->
+<div id="electionColl" class="wid_r">
+	<div class="coll_tit">
+		<h2 class="tit">20대 국회의원 선거</h2>
+	</div>
+	<div class="coll_cont">
+		#gnb('eec_start',['선거','개표현황','투표율','출구조사'],'개표현황')
+		<div class="cont_election cont_counting">
+			#flexTab(['지역구','비례대표'],'지역구',1)
+			#wrapLayer(true,1)
+			<em class="screen_out">투표율</em>
+			<div class="info_eec">
+				<div class="opt_local">
+					<div class="wrap_opt">
+						<div class="cont_opt">
+							<div class="select_comm select_comm1"> <!-- 리스트 오픈시 select_open 클래스 추가 - 오픈시 아래 ul태그내 hide로 리스트 노출 제어 / 비활성화시 select_dimmed 클래스 추가 -->
+								<div class="selected">전국</div>
+							</div>
+							<div class="select_comm select_comm4 select_dimmed"> <!-- 리스트 오픈시 select_open 클래스 추가 - 오픈시 아래 ul태그내 hide로 리스트 노출 제어 / 비활성화시 select_dimmed 클래스 추가 -->
+								<div class="selected">선거구</div>
+							</div>
+							<a href="javascript:;" class="link_cate">
+								<span class="txt_cate">정당별</span>
+								<span class="ico_election ico_cate"></span>
+							</a>
+						</div>
+					</div>
+					<div class="cont_sellist hide">
+						<strong class="screen_out">지역 셀렉트박스 리스트</strong>
+						<ul class="list_local">
+							#foreach($box1 in ['서울','부산','대구','인천','광주','대전','울산','세종','경기','강원','충북','충남','전북','전남','경북','경남','제주'])
+							<li>
+								<a href="javascript:;" class="link_opt">
+								<span class="txt_blank"></span><span class="txt_name">$box1</span></a>
+							</li>
+							#end
+						</ul>
+					</div>
+					<div class="cont_sellist hide">
+						<strong class="screen_out">읍면동 셀렉트박스 리스트</strong>
+						<ul class="list_borough">
+							#foreach($type in [1..35])
+								#if($type == 11)
+									<li class="on"><a href="javascript:;" class="link_opt"><span class="txt_blank"></span><span class="txt_name">성동구갑</span></a></li>
+								#else
+									<li><a href="javascript:;" class="link_opt"><span class="txt_blank"></span><span class="txt_name">성동구갑</span></a></li>
+								#end
+							#end
+						</ul>
+					</div>
+					<div class="cont_info">
+						<div class="info_rate">
+							<span class="rate_date">13시 25분 전국 투표율</span>
+							<span class="rate_count">
+								<em class="rate_local">64.65<span class="txt_per">%</span></em>
+								<span class="rate_num">
+									<span class="info_num">
+										<span>투표자수</span>
+										<span><strong class="num_rate">30,723,431</strong>명</span>
+									</span>
+									<span class="info_num">
+										<span>유권자수</span>
+										<span><strong class="num_rate">140,507,842</strong>명</span>
+									</span>
+								</span>
+							</span>
+						</div>
+						<div class="info_list"><!-- 2016.03.30 차트 추가시 노출을 위해서 리스트 상위에 div로 감싸줌 -->
+							<em class="screen_out">지역별 투표율</em>
+							<ul class="list_rate">
+								#foreach($box1 in [
+									['서울','item_seoul'],
+									['부산','item_busan'],
+									['세종','item_sejong'],
+									['대구','item_daegu'],
+									['인천','item_incheon'],
+									['광주','item_gwangju'],
+									['대전','item_daejeon'],
+									['울산','item_ulsan'],
+									['경기','item_gyeonggi'],
+									['강원','item_gangwon'],
+									['충북','item_chungnam'],
+									['충남','item_chungbuk'],
+									['전북','item_jeonbuk'],
+									['전남','item_jeollanam'],
+									['경남','item_gyeongnam'],
+									['경북','item_gyeongbuk'],
+									['제주','item_jeju']
+									])
+								<li class="$box1[1] #if($velocityCount==1)most_rate#end"><!-- 최고 투표율 지역에 most_rate 클래스 추가 -->
+									#if($velocityCount==1)
+									<strong class="screen_out">최고 투표율 지역</strong><!--  최고 투표율 지역에 해당 내용 추가 -->
+									#end
+									<span class="txt_blank"></span>
+									<span class="rate_txt">$box1[0]<span class="txt_rate">#if($velocityCount==1) 30.3% #else 20.3% #end</span></span>
+								</li>
+								#end
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		#referGuide2
+	</div>
+</div>
+
+<div class="line"></div>
+<div id="electionColl" class="wid_r">
+	<div class="coll_tit">
+		<h2 class="tit">20대 국회의원 선거</h2>
+	</div>
+	<div class="coll_cont">
+		#gnb('eec_start',['선거','개표현황','투표율','출구조사'],'개표현황')
+		<div class="cont_election cont_counting">
+			#flexTab(['지역구','비례대표'],'지역구',1)
+			#wrapLayer(true,1)
+			<em class="screen_out">투표율</em>
+			<div class="info_eec">
+				<div class="opt_local">
+					<div class="wrap_opt">
+						<div class="cont_opt">
+							<div class="select_comm select_comm1"> <!-- 리스트 오픈시 select_open 클래스 추가 - 오픈시 아래 ul태그내 hide로 리스트 노출 제어 / 비활성화시 select_dimmed 클래스 추가 -->
+								<div class="selected">전국</div>
+							</div>
+							<div class="select_comm select_comm4 select_dimmed"> <!-- 리스트 오픈시 select_open 클래스 추가 - 오픈시 아래 ul태그내 hide로 리스트 노출 제어 / 비활성화시 select_dimmed 클래스 추가 -->
+								<div class="selected">선거구</div>
+							</div>
+							<a href="javascript:;" class="link_cate">
+								<span class="txt_cate">정당별</span>
+								<span class="ico_election ico_cate"></span>
+							</a>
+						</div>
+					</div>
+					<div class="cont_sellist hide">
+						<strong class="screen_out">지역 셀렉트박스 리스트</strong>
+						<ul class="list_local">
+							#foreach($box1 in ['서울','부산','대구','인천','광주','대전','울산','세종','경기','강원','충북','충남','전북','전남','경북','경남','제주'])
+							<li>
+								<a href="javascript:;" class="link_opt">
+								<span class="txt_blank"></span><span class="txt_name">$box1</span></a>
+							</li>
+							#end
+						</ul>
+					</div>
+					<div class="cont_sellist hide">
+						<strong class="screen_out">읍면동 셀렉트박스 리스트</strong>
+						<ul class="list_borough">
+							#foreach($type in [1..35])
+								#if($type == 11)
+									<li class="on"><a href="javascript:;" class="link_opt"><span class="txt_blank"></span><span class="txt_name">성동구갑</span></a></li>
+								#else
+									<li><a href="javascript:;" class="link_opt"><span class="txt_blank"></span><span class="txt_name">성동구갑</span></a></li>
+								#end
+							#end
+						</ul>
+					</div>
+					<div class="cont_info cont_dual"><!-- wrap_chart와 같이 노출할 경우 cont_dual 클래스 추가 -->
+						<div class="info_rate">
+							<span class="rate_date">13시 25분 전국 투표율</span>
+							<span class="rate_count">
+								<em class="rate_local">64.65<span class="txt_per">%</span></em>
+								<span class="rate_num">
+									<span class="info_num">
+										<span>투표자수</span>
+										<span><strong class="num_rate">30,723,431</strong>명</span>
+									</span>
+									<span class="info_num">
+										<span>유권자수</span>
+										<span><strong class="num_rate">140,507,842</strong>명</span>
+									</span>
+								</span>
+							</span>
+						</div>
+						<div class="wrap_chart">
+							<em class="screen_out">주요 정당 예상 의석수</em>
+							<span class="sub_seat">(지역구+비례대표)</span>
+							<div class="chart_info">
+								<img src="https://ssl.daumcdn.net/i1.search/cfile188/image/2369323E56FB238134B566" alt="더미 이미지입니다." />
+							</div>
+							<div class="bundle_link">
+								<a href="javascrip:;" class="ico_election link_seat">지역구 의석수</a>
+								<a href="javascrip:;" class="ico_election link_seat">비례대표 의석수</a>
+							</div>
+						</div>
+						<div class="info_list">
+							<em class="screen_out">지역별 개표율</em>
+							<ul class="list_rate">
+								#foreach($box1 in [
+									['서울','item_seoul'],
+									['부산','item_busan'],
+									['세종','item_sejong'],
+									['대구','item_daegu'],
+									['인천','item_incheon'],
+									['광주','item_gwangju'],
+									['대전','item_daejeon'],
+									['울산','item_ulsan'],
+									['경기','item_gyeonggi'],
+									['강원','item_gangwon'],
+									['충북','item_chungnam'],
+									['충남','item_chungbuk'],
+									['전북','item_jeonbuk'],
+									['전남','item_jeollanam'],
+									['경남','item_gyeongnam'],
+									['경북','item_gyeongbuk'],
+									['제주','item_jeju']
+									])
+								<li class="$box1[1] #if($velocityCount==1)most_rate#end"><!-- 최고 투표율 지역에 most_rate 클래스 추가 -->
+									#if($velocityCount==1)
+									<strong class="screen_out">최고 투표율 지역</strong><!--  최고 투표율 지역에 해당 내용 추가 -->
+									#end
+									<span class="txt_blank"></span>
+									<span class="rate_txt">$box1[0]<span class="txt_rate">#if($velocityCount==1) 30.3% #else 20.3% #end</span></span>
+								</li>
+								#end
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		#referGuide2
+	</div>
+</div>
+
+<div class="line"></div>
+<div id="electionColl" class="wid_r">
+	<div class="coll_tit">
+		<h2 class="tit">20대 국회의원 선거</h2>
+	</div>
+	<div class="coll_cont">
+		#gnb('eec_start',['선거','개표현황','투표율','출구조사'],'개표현황')
+		<div class="cont_election cont_counting">
+			#flexTab(['지역구','비례대표'],'지역구',1)
+			#wrapLayer(true,1)
+			<em class="screen_out">투표율</em>
+			<div class="info_eec">
+				<div class="opt_local">
+					<div class="wrap_opt">
+						<div class="cont_opt">
+							<div class="select_comm select_comm1"> <!-- 리스트 오픈시 select_open 클래스 추가 - 오픈시 아래 ul태그내 hide로 리스트 노출 제어 / 비활성화시 select_dimmed 클래스 추가 -->
+								<div class="selected">전국</div>
+							</div>
+							<div class="select_comm select_comm4 select_dimmed"> <!-- 리스트 오픈시 select_open 클래스 추가 - 오픈시 아래 ul태그내 hide로 리스트 노출 제어 / 비활성화시 select_dimmed 클래스 추가 -->
+								<div class="selected">선거구</div>
+							</div>
+							<a href="javascript:;" class="link_cate">
+								<span class="txt_cate">정당별</span>
+								<span class="ico_election ico_cate"></span>
+							</a>
+						</div>
+					</div>
+					<div class="cont_sellist hide">
+						<strong class="screen_out">지역 셀렉트박스 리스트</strong>
+						<ul class="list_local">
+							#foreach($box1 in ['서울','부산','대구','인천','광주','대전','울산','세종','경기','강원','충북','충남','전북','전남','경북','경남','제주'])
+							<li>
+								<a href="javascript:;" class="link_opt">
+								<span class="txt_blank"></span><span class="txt_name">$box1</span></a>
+							</li>
+							#end
+						</ul>
+					</div>
+					<div class="cont_sellist hide">
+						<strong class="screen_out">읍면동 셀렉트박스 리스트</strong>
+						<ul class="list_borough">
+							#foreach($type in [1..35])
+								#if($type == 11)
+									<li class="on"><a href="javascript:;" class="link_opt"><span class="txt_blank"></span><span class="txt_name">성동구갑</span></a></li>
+								#else
+									<li><a href="javascript:;" class="link_opt"><span class="txt_blank"></span><span class="txt_name">성동구갑</span></a></li>
+								#end
+							#end
+						</ul>
+					</div>
+					<div class="cont_info">
+						<div class="info_rate">
+							<span class="rate_date">13시 25분 전국 투표율</span>
+							<span class="rate_count">
+								<em class="rate_local">64.65<span class="txt_per">%</span></em>
+								<span class="rate_num">
+									<span class="info_num">
+										<span>투표자수</span>
+										<span><strong class="num_rate">30,723,431</strong>명</span>
+									</span>
+									<span class="info_num">
+										<span>유권자수</span>
+										<span><strong class="num_rate">140,507,842</strong>명</span>
+									</span>
+								</span>
+							</span>
+						</div>
+						<div class="chart_cont">
+							<em class="tit_chart">정당별 현재 1위 후보자수</em>
+							<span class="subtxt_chart">(13시 52분 기준)</span>
+							<img src="https://ssl.daumcdn.net/i1.search/cfile139/image/2708764E56DE85460D3264" alt="더미이미지" style="width:100%"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		#referGuide2
+	</div>
+</div>
+
+<div class="line"></div>
+<div id="electionColl" class="wid_r">
+	<div class="coll_tit">
+		<h2 class="tit">20대 국회의원 선거</h2>
+	</div>
+	<div class="coll_cont">
+		#gnb('eec_start',['선거','개표현황','투표율','출구조사'],'개표현황')
+		<div class="cont_election cont_counting">
+			#flexTab(['지역구','비례대표'],'비례대표',1)
+			#wrapLayer(true,1)
+			<em class="screen_out">투표율</em>
+			<div class="info_eec">
+				<div class="opt_local">
+					<div class="cont_info">
+						<div class="info_rate">
+							<span class="rate_date">13시 25분 전국 투표율</span>
+							<span class="rate_count">
+								<em class="rate_local">64.65<span class="txt_per">%</span></em>
+								<span class="rate_num">
+									<span class="info_num">
+										<span>투표자수</span>
+										<span><strong class="num_rate">30,723,431</strong>명</span>
+									</span>
+									<span class="info_num">
+										<span>유권자수</span>
+										<span><strong class="num_rate">140,507,842</strong>명</span>
+									</span>
+								</span>
+							</span>
+						</div>
+						<ul class="list_tabrate">
+							<li><a href="javascript:;" class="tab_tit">시간대별 투표율</a></li>
+							<li class="on"><strong class="tab_tit ">지역별 투표율</strong></li>
+						</ul>
+						<div class="chart_cont">
+							<img src="https://ssl.daumcdn.net/i1.search/cfile139/image/2708764E56DE85460D3264" alt="더미이미지" style="width:100%"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		#referGuide2
+	</div>
+</div>
+
+<div class="line"></div>
+<div id="electionColl" class="wid_r">
+	<div class="coll_tit">
+		<h2 class="tit">20대 국회의원 선거</h2>
+	</div>
+	<div class="coll_cont">
+		#gnb('eec_start',['선거','개표현황','투표율','출구조사'],'개표현황')
+		<div class="cont_election cont_counting">
+			#flexTab(['지역구','비례대표'],'비례대표',1)
+			#wrapLayer(true,2)
+			<em class="screen_out">투표율</em>
+			<div class="info_eec">
+				<div class="opt_local">
+					<div class="cont_info">
+						<div class="info_rate">
+							<span class="rate_date">13시 25분 전국 투표율</span>
+							<span class="rate_count">
+								<em class="rate_local">64.65<span class="txt_per">%</span></em>
+								<span class="rate_num">
+									<span class="info_num">
+										<span>투표자수</span>
+										<span><strong class="num_rate">30,723,431</strong>명</span>
+									</span>
+									<span class="info_num">
+										<span>유권자수</span>
+										<span><strong class="num_rate">140,507,842</strong>명</span>
+									</span>
+								</span>
+							</span>
+						</div>
+						<ul class="list_tabrate">
+							<li><a href="javascript:;" class="tab_tit">시간대별 투표율</a></li>
+							<li class="on"><strong class="tab_tit ">지역별 투표율</strong></li>
+						</ul>
+						<div class="cont_tbl">
+							<em class="screen_out">정당별 출구조사</em>
+							<table class="tbl_rwd">
+								<thead>
+									<tr>
+										<th scope="col">정당</th>
+										<th scope="col">득표율</th>
+										<th scope="col">득표수</th>
+										<th scope="col">출구조사 예상의석수</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>새누리당</td>
+										<td class="f_emph">37.4%</td>
+										<td class="txt_fsub">23,212,222</td>
+										<td>132석</td>
+									</tr>
+									<tr>
+										<td>더불어민주당</td>
+										<td class="f_emph">37.4%</td>
+										<td class="txt_fsub">23,212,222</td>
+										<td>132석</td>
+									</tr>
+									<tr>
+										<td>정의당</td>
+										<td class="f_emph">37.4%</td>
+										<td class="txt_fsub">23,212,222</td>
+										<td>132석</td>
+									</tr>
+									<tr>
+										<td>국민의당</td>
+										<td>37.4%</td>
+										<td class="txt_fsub">23,212,222</td>
+										<td>132석</td>
+									</tr>
+									<tr>
+										<td>무소속</td>
+										<td>37.4%</td>
+										<td class="txt_fsub">23,212,222</td>
+										<td>132석</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		#referGuide2
+	</div>
+</div>
+
+<div class="line"></div>
